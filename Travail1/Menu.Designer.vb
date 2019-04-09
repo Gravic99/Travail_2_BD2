@@ -33,6 +33,7 @@ Partial Class Menu
         Me.AjoutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GererToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifierEntenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RéservationÉtudiantToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -47,7 +48,7 @@ Partial Class Menu
         '
         'FormulaireToolStripMenuItem
         '
-        Me.FormulaireToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EssenceToolStripMenuItem, Me.ToolStripTextBox1, Me.FournisseurToolStripMenuItem, Me.ModifierEntenteToolStripMenuItem})
+        Me.FormulaireToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EssenceToolStripMenuItem, Me.ToolStripTextBox1, Me.FournisseurToolStripMenuItem, Me.ModifierEntenteToolStripMenuItem, Me.RéservationÉtudiantToolStripMenuItem})
         Me.FormulaireToolStripMenuItem.Name = "FormulaireToolStripMenuItem"
         Me.FormulaireToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.FormulaireToolStripMenuItem.Text = "Formulaire"
@@ -56,7 +57,7 @@ Partial Class Menu
         '
         Me.EssenceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AjoutToolStripMenuItem, Me.ModifierToolStripMenuItem, Me.DétruireToolStripMenuItem})
         Me.EssenceToolStripMenuItem.Name = "EssenceToolStripMenuItem"
-        Me.EssenceToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EssenceToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.EssenceToolStripMenuItem.Text = "Essence"
         '
         'AjoutToolStripMenuItem
@@ -87,7 +88,7 @@ Partial Class Menu
         '
         Me.FournisseurToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AjoutToolStripMenuItem1, Me.GererToolStripMenuItem})
         Me.FournisseurToolStripMenuItem.Name = "FournisseurToolStripMenuItem"
-        Me.FournisseurToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FournisseurToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.FournisseurToolStripMenuItem.Text = "Fournisseur"
         '
         'AjoutToolStripMenuItem1
@@ -105,8 +106,14 @@ Partial Class Menu
         'ModifierEntenteToolStripMenuItem
         '
         Me.ModifierEntenteToolStripMenuItem.Name = "ModifierEntenteToolStripMenuItem"
-        Me.ModifierEntenteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ModifierEntenteToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ModifierEntenteToolStripMenuItem.Text = "Modifier Entente"
+        '
+        'RéservationÉtudiantToolStripMenuItem
+        '
+        Me.RéservationÉtudiantToolStripMenuItem.Name = "RéservationÉtudiantToolStripMenuItem"
+        Me.RéservationÉtudiantToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RéservationÉtudiantToolStripMenuItem.Text = "Rechercher étudiant"
         '
         'Menu
         '
@@ -135,4 +142,5 @@ Partial Class Menu
     Friend WithEvents AjoutToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents GererToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModifierEntenteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RéservationÉtudiantToolStripMenuItem As ToolStripMenuItem
 End Class

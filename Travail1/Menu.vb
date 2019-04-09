@@ -29,4 +29,8 @@ Public Class Menu
     Private Sub ModifierEntenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifierEntenteToolStripMenuItem.Click
         ModifierEntente.ShowDialog()
     End Sub
+
+    Private Sub RéservationÉtudiantToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RéservationÉtudiantToolStripMenuItem.Click
+        recherche_client.ShowDialog()
+    End Sub
 End Class
