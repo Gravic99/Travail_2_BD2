@@ -22,6 +22,7 @@ Partial Class Reservation
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lblReservation = New System.Windows.Forms.Label()
         Me.lblNoReservation = New System.Windows.Forms.Label()
         Me.lblNoEtudiant = New System.Windows.Forms.Label()
@@ -29,14 +30,24 @@ Partial Class Reservation
         Me.txtNoEtudiant = New System.Windows.Forms.TextBox()
         Me.txtPrenom = New System.Windows.Forms.TextBox()
         Me.lblPrenom = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtNom = New System.Windows.Forms.TextBox()
         Me.lblNom = New System.Windows.Forms.Label()
         Me.txtDate = New System.Windows.Forms.TextBox()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblDetailsReservation = New System.Windows.Forms.Label()
         Me.dgvDetailsReservation = New System.Windows.Forms.DataGridView()
         Me.btnEnregistrerDetailsReservation = New System.Windows.Forms.Button()
+        Me.AR_EL_Travail_1DataSet = New Travail1.AR_EL_Travail_1DataSet()
+        Me.TblReservationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Tbl_ReservationTableAdapter = New Travail1.AR_EL_Travail_1DataSetTableAdapters.tbl_ReservationTableAdapter()
+        Me.ARELTravail1DataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TblReservationParItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Tbl_Reservation_Par_ItemsTableAdapter = New Travail1.AR_EL_Travail_1DataSetTableAdapters.tbl_Reservation_Par_ItemsTableAdapter()
         CType(Me.dgvDetailsReservation, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AR_EL_Travail_1DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblReservationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ARELTravail1DataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblReservationParItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblReservation
@@ -96,12 +107,12 @@ Partial Class Reservation
         Me.lblPrenom.TabIndex = 5
         Me.lblPrenom.Text = "Prénom"
         '
-        'TextBox1
+        'txtNom
         '
-        Me.TextBox1.Location = New System.Drawing.Point(107, 103)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 8
+        Me.txtNom.Location = New System.Drawing.Point(107, 103)
+        Me.txtNom.Name = "txtNom"
+        Me.txtNom.Size = New System.Drawing.Size(100, 20)
+        Me.txtNom.TabIndex = 8
         '
         'lblNom
         '
@@ -154,6 +165,34 @@ Partial Class Reservation
         Me.btnEnregistrerDetailsReservation.Text = "Enregistrer la réservation"
         Me.btnEnregistrerDetailsReservation.UseVisualStyleBackColor = True
         '
+        'AR_EL_Travail_1DataSet
+        '
+        Me.AR_EL_Travail_1DataSet.DataSetName = "AR_EL_Travail_1DataSet"
+        Me.AR_EL_Travail_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TblReservationBindingSource
+        '
+        Me.TblReservationBindingSource.DataMember = "tbl_Reservation"
+        Me.TblReservationBindingSource.DataSource = Me.AR_EL_Travail_1DataSet
+        '
+        'Tbl_ReservationTableAdapter
+        '
+        Me.Tbl_ReservationTableAdapter.ClearBeforeFill = True
+        '
+        'ARELTravail1DataSetBindingSource
+        '
+        Me.ARELTravail1DataSetBindingSource.DataSource = Me.AR_EL_Travail_1DataSet
+        Me.ARELTravail1DataSetBindingSource.Position = 0
+        '
+        'TblReservationParItemsBindingSource
+        '
+        Me.TblReservationParItemsBindingSource.DataMember = "tbl_Reservation_Par_Items"
+        Me.TblReservationParItemsBindingSource.DataSource = Me.ARELTravail1DataSetBindingSource
+        '
+        'Tbl_Reservation_Par_ItemsTableAdapter
+        '
+        Me.Tbl_Reservation_Par_ItemsTableAdapter.ClearBeforeFill = True
+        '
         'Reservation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -164,7 +203,7 @@ Partial Class Reservation
         Me.Controls.Add(Me.lblDetailsReservation)
         Me.Controls.Add(Me.txtDate)
         Me.Controls.Add(Me.lblDate)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtNom)
         Me.Controls.Add(Me.lblNom)
         Me.Controls.Add(Me.txtPrenom)
         Me.Controls.Add(Me.lblPrenom)
@@ -176,6 +215,10 @@ Partial Class Reservation
         Me.Name = "Reservation"
         Me.Text = "Reservation"
         CType(Me.dgvDetailsReservation, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AR_EL_Travail_1DataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblReservationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ARELTravail1DataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblReservationParItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -188,11 +231,17 @@ Partial Class Reservation
     Friend WithEvents txtNoEtudiant As TextBox
     Friend WithEvents txtPrenom As TextBox
     Friend WithEvents lblPrenom As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtNom As TextBox
     Friend WithEvents lblNom As Label
     Friend WithEvents txtDate As TextBox
     Friend WithEvents lblDate As Label
     Friend WithEvents lblDetailsReservation As Label
     Friend WithEvents dgvDetailsReservation As DataGridView
     Friend WithEvents btnEnregistrerDetailsReservation As Button
+    Friend WithEvents AR_EL_Travail_1DataSet As AR_EL_Travail_1DataSet
+    Friend WithEvents TblReservationBindingSource As BindingSource
+    Friend WithEvents Tbl_ReservationTableAdapter As AR_EL_Travail_1DataSetTableAdapters.tbl_ReservationTableAdapter
+    Friend WithEvents ARELTravail1DataSetBindingSource As BindingSource
+    Friend WithEvents TblReservationParItemsBindingSource As BindingSource
+    Friend WithEvents Tbl_Reservation_Par_ItemsTableAdapter As AR_EL_Travail_1DataSetTableAdapters.tbl_Reservation_Par_ItemsTableAdapter
 End Class
