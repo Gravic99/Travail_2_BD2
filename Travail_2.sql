@@ -324,16 +324,17 @@ insert into tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
 Values(1,9,5,'non')
 go
 
-<<<<<<< HEAD
 CREATE PROCEDURE destruction_client
 @noClient int
 AS
-DELETE FROM tbl_Client
-WHERE No_Client = @noClient
 DELETE FROM tbl_Reservation_Par_Items
 WHERE No_Reservation = (SELECT No_Reservation FROM tbl_Reservation WHERE No_Client = @noClient)
 DELETE FROM tbl_Reservation
 WHERE No_Client = @noClient
+DELETE FROM tbl_Client
+WHERE No_Client = @noClient
 GO
-=======
->>>>>>> efafe07aa39ab789f3abbdb37297ca7894037240
+
+--EXEC destruction_client '1002'
+--GO
+
