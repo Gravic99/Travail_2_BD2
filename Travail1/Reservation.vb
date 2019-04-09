@@ -1,3 +1,5 @@
 ﻿Public Class Reservation
+    Private Sub Reservation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class
