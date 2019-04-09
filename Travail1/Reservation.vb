@@ -1,5 +1,7 @@
 ﻿Public Class Reservation
+    Dim Ds As New AR_EL_Travail_1DataSet
     Private Sub Reservation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         DisableTxtBox()
     End Sub
     Sub DisableTxtBox()
