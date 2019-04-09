@@ -190,6 +190,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="recherche_etudiant.resx">
+      <DependentUpon>recherche_etudiant.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reservation.resx">
       <DependentUpon>Reservation.vb</DependentUpon>
     </EmbeddedResource>
