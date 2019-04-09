@@ -29,14 +29,14 @@ Partial Class Ajout_Essence
         '
         'Txt_description
         '
-        Me.Txt_description.Location = New System.Drawing.Point(109, 81)
+        Me.Txt_description.Location = New System.Drawing.Point(99, 29)
         Me.Txt_description.Name = "Txt_description"
         Me.Txt_description.Size = New System.Drawing.Size(121, 20)
         Me.Txt_description.TabIndex = 0
         '
         'Btn_Ajouter
         '
-        Me.Btn_Ajouter.Location = New System.Drawing.Point(109, 119)
+        Me.Btn_Ajouter.Location = New System.Drawing.Point(99, 67)
         Me.Btn_Ajouter.Name = "Btn_Ajouter"
         Me.Btn_Ajouter.Size = New System.Drawing.Size(121, 23)
         Me.Btn_Ajouter.TabIndex = 2
@@ -46,7 +46,7 @@ Partial Class Ajout_Essence
         'Lbl_Nom
         '
         Me.Lbl_Nom.AutoSize = True
-        Me.Lbl_Nom.Location = New System.Drawing.Point(46, 88)
+        Me.Lbl_Nom.Location = New System.Drawing.Point(36, 36)
         Me.Lbl_Nom.Name = "Lbl_Nom"
         Me.Lbl_Nom.Size = New System.Drawing.Size(29, 13)
         Me.Lbl_Nom.TabIndex = 3
@@ -56,7 +56,7 @@ Partial Class Ajout_Essence
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(316, 194)
+        Me.ClientSize = New System.Drawing.Size(269, 119)
         Me.Controls.Add(Me.Lbl_Nom)
         Me.Controls.Add(Me.Btn_Ajouter)
         Me.Controls.Add(Me.Txt_description)

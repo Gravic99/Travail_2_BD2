@@ -31,6 +31,8 @@ Partial Class Menu
         Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
         Me.FournisseurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AjoutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GererToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifierEntenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,13 +41,13 @@ Partial Class Menu
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormulaireToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(394, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'FormulaireToolStripMenuItem
         '
-        Me.FormulaireToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EssenceToolStripMenuItem, Me.ToolStripTextBox1, Me.FournisseurToolStripMenuItem})
+        Me.FormulaireToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EssenceToolStripMenuItem, Me.ToolStripTextBox1, Me.FournisseurToolStripMenuItem, Me.ModifierEntenteToolStripMenuItem})
         Me.FormulaireToolStripMenuItem.Name = "FormulaireToolStripMenuItem"
         Me.FormulaireToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.FormulaireToolStripMenuItem.Text = "Formulaire"
@@ -60,19 +62,19 @@ Partial Class Menu
         'AjoutToolStripMenuItem
         '
         Me.AjoutToolStripMenuItem.Name = "AjoutToolStripMenuItem"
-        Me.AjoutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AjoutToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.AjoutToolStripMenuItem.Text = "Ajout"
         '
         'ModifierToolStripMenuItem
         '
         Me.ModifierToolStripMenuItem.Name = "ModifierToolStripMenuItem"
-        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.ModifierToolStripMenuItem.Text = "Modifier"
         '
         'DétruireToolStripMenuItem
         '
         Me.DétruireToolStripMenuItem.Name = "DétruireToolStripMenuItem"
-        Me.DétruireToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DétruireToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.DétruireToolStripMenuItem.Text = "Détruire"
         '
         'ToolStripTextBox1
@@ -83,7 +85,7 @@ Partial Class Menu
         '
         'FournisseurToolStripMenuItem
         '
-        Me.FournisseurToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AjoutToolStripMenuItem1})
+        Me.FournisseurToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AjoutToolStripMenuItem1, Me.GererToolStripMenuItem})
         Me.FournisseurToolStripMenuItem.Name = "FournisseurToolStripMenuItem"
         Me.FournisseurToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FournisseurToolStripMenuItem.Text = "Fournisseur"
@@ -91,14 +93,26 @@ Partial Class Menu
         'AjoutToolStripMenuItem1
         '
         Me.AjoutToolStripMenuItem1.Name = "AjoutToolStripMenuItem1"
-        Me.AjoutToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AjoutToolStripMenuItem1.Size = New System.Drawing.Size(103, 22)
         Me.AjoutToolStripMenuItem1.Text = "Ajout"
+        '
+        'GererToolStripMenuItem
+        '
+        Me.GererToolStripMenuItem.Name = "GererToolStripMenuItem"
+        Me.GererToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.GererToolStripMenuItem.Text = "Gerer"
+        '
+        'ModifierEntenteToolStripMenuItem
+        '
+        Me.ModifierEntenteToolStripMenuItem.Name = "ModifierEntenteToolStripMenuItem"
+        Me.ModifierEntenteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ModifierEntenteToolStripMenuItem.Text = "Modifier Entente"
         '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(394, 159)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Menu"
@@ -119,4 +133,6 @@ Partial Class Menu
     Friend WithEvents DétruireToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FournisseurToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AjoutToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents GererToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModifierEntenteToolStripMenuItem As ToolStripMenuItem
 End Class

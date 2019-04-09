@@ -29,7 +29,7 @@ Partial Class Detruire_Essence
         '
         'Btn_Detruire
         '
-        Me.Btn_Detruire.Location = New System.Drawing.Point(132, 142)
+        Me.Btn_Detruire.Location = New System.Drawing.Point(99, 83)
         Me.Btn_Detruire.Name = "Btn_Detruire"
         Me.Btn_Detruire.Size = New System.Drawing.Size(121, 23)
         Me.Btn_Detruire.TabIndex = 5
@@ -39,7 +39,7 @@ Partial Class Detruire_Essence
         'ComboBox_Essence
         '
         Me.ComboBox_Essence.FormattingEnabled = True
-        Me.ComboBox_Essence.Location = New System.Drawing.Point(132, 81)
+        Me.ComboBox_Essence.Location = New System.Drawing.Point(99, 22)
         Me.ComboBox_Essence.Name = "ComboBox_Essence"
         Me.ComboBox_Essence.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox_Essence.TabIndex = 4
@@ -47,7 +47,7 @@ Partial Class Detruire_Essence
         'Lbl_Nom
         '
         Me.Lbl_Nom.AutoSize = True
-        Me.Lbl_Nom.Location = New System.Drawing.Point(79, 89)
+        Me.Lbl_Nom.Location = New System.Drawing.Point(46, 30)
         Me.Lbl_Nom.Name = "Lbl_Nom"
         Me.Lbl_Nom.Size = New System.Drawing.Size(29, 13)
         Me.Lbl_Nom.TabIndex = 6
@@ -57,7 +57,7 @@ Partial Class Detruire_Essence
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(300, 219)
+        Me.ClientSize = New System.Drawing.Size(301, 126)
         Me.Controls.Add(Me.Lbl_Nom)
         Me.Controls.Add(Me.Btn_Detruire)
         Me.Controls.Add(Me.ComboBox_Essence)

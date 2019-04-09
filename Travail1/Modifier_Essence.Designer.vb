@@ -31,7 +31,7 @@ Partial Class Modifier_Essence
         '
         'Btn_Modifier
         '
-        Me.Btn_Modifier.Location = New System.Drawing.Point(129, 148)
+        Me.Btn_Modifier.Location = New System.Drawing.Point(116, 122)
         Me.Btn_Modifier.Name = "Btn_Modifier"
         Me.Btn_Modifier.Size = New System.Drawing.Size(121, 23)
         Me.Btn_Modifier.TabIndex = 5
@@ -41,14 +41,14 @@ Partial Class Modifier_Essence
         'ComboBox_Essence
         '
         Me.ComboBox_Essence.FormattingEnabled = True
-        Me.ComboBox_Essence.Location = New System.Drawing.Point(129, 57)
+        Me.ComboBox_Essence.Location = New System.Drawing.Point(116, 31)
         Me.ComboBox_Essence.Name = "ComboBox_Essence"
         Me.ComboBox_Essence.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox_Essence.TabIndex = 4
         '
         'Txt_description
         '
-        Me.Txt_description.Location = New System.Drawing.Point(129, 96)
+        Me.Txt_description.Location = New System.Drawing.Point(116, 70)
         Me.Txt_description.Name = "Txt_description"
         Me.Txt_description.Size = New System.Drawing.Size(121, 20)
         Me.Txt_description.TabIndex = 3
@@ -56,7 +56,7 @@ Partial Class Modifier_Essence
         'Lbl_Nom
         '
         Me.Lbl_Nom.AutoSize = True
-        Me.Lbl_Nom.Location = New System.Drawing.Point(49, 65)
+        Me.Lbl_Nom.Location = New System.Drawing.Point(36, 39)
         Me.Lbl_Nom.Name = "Lbl_Nom"
         Me.Lbl_Nom.Size = New System.Drawing.Size(29, 13)
         Me.Lbl_Nom.TabIndex = 6
@@ -65,7 +65,7 @@ Partial Class Modifier_Essence
         'Lbl_Nouveau_nom
         '
         Me.Lbl_Nouveau_nom.AutoSize = True
-        Me.Lbl_Nouveau_nom.Location = New System.Drawing.Point(49, 103)
+        Me.Lbl_Nouveau_nom.Location = New System.Drawing.Point(36, 77)
         Me.Lbl_Nouveau_nom.Name = "Lbl_Nouveau_nom"
         Me.Lbl_Nouveau_nom.Size = New System.Drawing.Size(74, 13)
         Me.Lbl_Nouveau_nom.TabIndex = 7
@@ -75,7 +75,7 @@ Partial Class Modifier_Essence
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(313, 241)
+        Me.ClientSize = New System.Drawing.Size(305, 173)
         Me.Controls.Add(Me.Lbl_Nouveau_nom)
         Me.Controls.Add(Me.Lbl_Nom)
         Me.Controls.Add(Me.Btn_Modifier)

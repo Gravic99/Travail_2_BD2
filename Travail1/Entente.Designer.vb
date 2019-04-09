@@ -150,7 +150,7 @@ Partial Class Entente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(429, 349)
+        Me.ClientSize = New System.Drawing.Size(380, 269)
         Me.Controls.Add(Me.Btn_Ajouter)
         Me.Controls.Add(Me.Btn_ajouter_Essence)
         Me.Controls.Add(Me.Btn_ajouter_fournisseur)

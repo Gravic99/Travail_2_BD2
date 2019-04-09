@@ -85,6 +85,14 @@
     <Compile Include="Ajout_Fournisseur.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AR_EL_Travail_1DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AR_EL_Travail_1DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AR_EL_Travail_1DataSet.vb">
+      <DependentUpon>AR_EL_Travail_1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Detruire_Essence.Designer.vb">
       <DependentUpon>Detruire_Essence.vb</DependentUpon>
     </Compile>
@@ -97,11 +105,23 @@
     <Compile Include="Entente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gerer_Fournisseur.Designer.vb">
+      <DependentUpon>Gerer_Fournisseur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gerer_Fournisseur.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Menu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu.Designer.vb">
       <DependentUpon>Menu.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierEntente.Designer.vb">
+      <DependentUpon>ModifierEntente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierEntente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modifier_Essence.Designer.vb">
@@ -131,14 +151,23 @@
     <EmbeddedResource Include="Ajout_Essence.resx">
       <DependentUpon>Ajout_Essence.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ajout_Fournisseur.resx">
+      <DependentUpon>Ajout_Fournisseur.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Detruire_Essence.resx">
       <DependentUpon>Detruire_Essence.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Entente.resx">
       <DependentUpon>Entente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gerer_Fournisseur.resx">
+      <DependentUpon>Gerer_Fournisseur.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierEntente.resx">
+      <DependentUpon>ModifierEntente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modifier_Essence.resx">
       <DependentUpon>Modifier_Essence.vb</DependentUpon>
@@ -151,6 +180,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="AR_EL_Travail_1DataSet.xsc">
+      <DependentUpon>AR_EL_Travail_1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AR_EL_Travail_1DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AR_EL_Travail_1DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AR_EL_Travail_1DataSet.xss">
+      <DependentUpon>AR_EL_Travail_1DataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
