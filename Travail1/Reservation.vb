@@ -6,7 +6,7 @@
     End Sub
     Sub DisableTxtBox()
         txtDate.Enabled = False
-        txtNoEtudiant.Enabled = False
+        txtNoClient.Enabled = False
         txtNom.Enabled = False
         txtNoReservation.Enabled = False
         txtPrenom.Enabled = False
