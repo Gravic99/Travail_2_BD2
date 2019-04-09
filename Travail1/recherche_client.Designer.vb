@@ -24,8 +24,8 @@ Partial Class recherche_client
     Private Sub InitializeComponent()
         Me.lbl_nom = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtNom = New System.Windows.Forms.TextBox()
         Me.btnRechercher = New System.Windows.Forms.Button()
+        Me.txtNom = New System.Windows.Forms.TextBox()
         Me.dgvClient = New System.Windows.Forms.DataGridView()
         Me.dgvReservation = New System.Windows.Forms.DataGridView()
         Me.btnEnregistrerReservation = New System.Windows.Forms.Button()
@@ -58,13 +58,6 @@ Partial Class recherche_client
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Recherche"
         '
-        'txtNom
-        '
-        Me.txtNom.Location = New System.Drawing.Point(142, 35)
-        Me.txtNom.Name = "txtNom"
-        Me.txtNom.Size = New System.Drawing.Size(100, 20)
-        Me.txtNom.TabIndex = 2
-        '
         'btnRechercher
         '
         Me.btnRechercher.Location = New System.Drawing.Point(259, 35)
@@ -73,6 +66,13 @@ Partial Class recherche_client
         Me.btnRechercher.TabIndex = 3
         Me.btnRechercher.Text = "Rechercher"
         Me.btnRechercher.UseVisualStyleBackColor = True
+        '
+        'txtNom
+        '
+        Me.txtNom.Location = New System.Drawing.Point(142, 35)
+        Me.txtNom.Name = "txtNom"
+        Me.txtNom.Size = New System.Drawing.Size(100, 20)
+        Me.txtNom.TabIndex = 2
         '
         'dgvClient
         '
