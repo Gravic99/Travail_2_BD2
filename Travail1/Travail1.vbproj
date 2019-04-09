@@ -146,6 +146,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="recherche_etudiant.Designer.vb">
+      <DependentUpon>recherche_etudiant.vb</DependentUpon>
+    </Compile>
+    <Compile Include="recherche_etudiant.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Ajout_Essence.resx">
