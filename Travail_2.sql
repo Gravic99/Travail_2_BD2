@@ -327,14 +327,26 @@ go
 CREATE PROCEDURE destruction_client
 @noClient int
 AS
+DECLARE @cpt_error INT
+SET @cpt_error = 0
+BEGIN TRANSACTION
 DELETE FROM tbl_Reservation_Par_Items
 WHERE No_Reservation = (SELECT No_Reservation FROM tbl_Reservation WHERE No_Client = @noClient)
+SET @cpt_error = @cpt_error + @@ERROR
 DELETE FROM tbl_Reservation
 WHERE No_Client = @noClient
+SET @cpt_error = @cpt_error + @@ERROR
 DELETE FROM tbl_Client
 WHERE No_Client = @noClient
+SET @cpt_error = @cpt_error + @@ERROR
+--INSERT INTO tbl_Client(No_Client,Nom,Prenom,Telephone)
+--VALUES (9999999, 'Mario','Mario', '418-418-4184')
+--SET @cpt_error = @cpt_error + @@ERROR
+IF @cpt_error = 0 
+	COMMIT TRANSACTION
+ELSE 
+	 BEGIN
+	 RAISERROR ('Erreur détecté, suppression annulée',16,1)
+	 ROLLBACK
+END
 GO
-
---EXEC destruction_client '1002'
---GO
-
