@@ -25,9 +25,9 @@ Partial Class Reservation
         Me.components = New System.ComponentModel.Container()
         Me.lblReservation = New System.Windows.Forms.Label()
         Me.lblNoReservation = New System.Windows.Forms.Label()
-        Me.lblNoEtudiant = New System.Windows.Forms.Label()
+        Me.lblNoClient = New System.Windows.Forms.Label()
         Me.txtNoReservation = New System.Windows.Forms.TextBox()
-        Me.txtNoEtudiant = New System.Windows.Forms.TextBox()
+        Me.txtNoClient = New System.Windows.Forms.TextBox()
         Me.txtPrenom = New System.Windows.Forms.TextBox()
         Me.lblPrenom = New System.Windows.Forms.Label()
         Me.txtNom = New System.Windows.Forms.TextBox()
@@ -68,14 +68,14 @@ Partial Class Reservation
         Me.lblNoReservation.TabIndex = 1
         Me.lblNoReservation.Text = "No réservation"
         '
-        'lblNoEtudiant
+        'lblNoClient
         '
-        Me.lblNoEtudiant.AutoSize = True
-        Me.lblNoEtudiant.Location = New System.Drawing.Point(25, 54)
-        Me.lblNoEtudiant.Name = "lblNoEtudiant"
-        Me.lblNoEtudiant.Size = New System.Drawing.Size(62, 13)
-        Me.lblNoEtudiant.TabIndex = 2
-        Me.lblNoEtudiant.Text = "No étudiant"
+        Me.lblNoClient.AutoSize = True
+        Me.lblNoClient.Location = New System.Drawing.Point(25, 54)
+        Me.lblNoClient.Name = "lblNoClient"
+        Me.lblNoClient.Size = New System.Drawing.Size(50, 13)
+        Me.lblNoClient.TabIndex = 2
+        Me.lblNoClient.Text = "No Client"
         '
         'txtNoReservation
         '
@@ -84,12 +84,12 @@ Partial Class Reservation
         Me.txtNoReservation.Size = New System.Drawing.Size(100, 20)
         Me.txtNoReservation.TabIndex = 3
         '
-        'txtNoEtudiant
+        'txtNoClient
         '
-        Me.txtNoEtudiant.Location = New System.Drawing.Point(107, 51)
-        Me.txtNoEtudiant.Name = "txtNoEtudiant"
-        Me.txtNoEtudiant.Size = New System.Drawing.Size(100, 20)
-        Me.txtNoEtudiant.TabIndex = 4
+        Me.txtNoClient.Location = New System.Drawing.Point(107, 51)
+        Me.txtNoClient.Name = "txtNoClient"
+        Me.txtNoClient.Size = New System.Drawing.Size(100, 20)
+        Me.txtNoClient.TabIndex = 4
         '
         'txtPrenom
         '
@@ -207,9 +207,9 @@ Partial Class Reservation
         Me.Controls.Add(Me.lblNom)
         Me.Controls.Add(Me.txtPrenom)
         Me.Controls.Add(Me.lblPrenom)
-        Me.Controls.Add(Me.txtNoEtudiant)
+        Me.Controls.Add(Me.txtNoClient)
         Me.Controls.Add(Me.txtNoReservation)
-        Me.Controls.Add(Me.lblNoEtudiant)
+        Me.Controls.Add(Me.lblNoClient)
         Me.Controls.Add(Me.lblNoReservation)
         Me.Controls.Add(Me.lblReservation)
         Me.Name = "Reservation"
@@ -226,9 +226,9 @@ Partial Class Reservation
 
     Friend WithEvents lblReservation As Label
     Friend WithEvents lblNoReservation As Label
-    Friend WithEvents lblNoEtudiant As Label
+    Friend WithEvents lblNoClient As Label
     Friend WithEvents txtNoReservation As TextBox
-    Friend WithEvents txtNoEtudiant As TextBox
+    Friend WithEvents txtNoClient As TextBox
     Friend WithEvents txtPrenom As TextBox
     Friend WithEvents lblPrenom As Label
     Friend WithEvents txtNom As TextBox
