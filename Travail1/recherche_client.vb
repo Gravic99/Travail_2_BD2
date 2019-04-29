@@ -19,11 +19,13 @@
         Reservation.txtNom.Text = dgvClient.Item(1, dgvClient.CurrentRow.Index).Value
         Reservation.txtDate.Text = dgvReservation.Item(1, dgvReservation.CurrentRow.Index).Value
         Reservation.ShowDialog()
-
     End Sub
 
     Private Sub btnRechercher_Click(sender As Object, e As EventArgs) Handles btnRechercher.Click
         Try
+            If Ds.HasChanges Then
+                Enregistrement()
+            End If
             Ta_Client.FillByRecherche(Ds.tbl_Client, txtNom.Text)
             Ta_Reservation.Fill(Ds.tbl_Reservation)
 
@@ -47,6 +49,7 @@
             dgvClient.AllowUserToDeleteRows = False
             dgvClient.ReadOnly = True
             dgvReservation.Columns("No_Client").Visible = False
+            dgvReservation.ReadOnly = True
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -55,7 +58,8 @@
 
 
     Private Sub dgvReservation_DefaultValuesNeeded(sender As Object, e As DataGridViewRowEventArgs) Handles dgvReservation.DefaultValuesNeeded
-        dgvReservation.Item("Date_reservation", dgvReservation.GetCellCount(DataGridViewElementStates.ReadOnly) - 1).Value = Date.Today()
+        Dim test As Integer = (dgvReservation.GetCellCount(DataGridViewElementStates.ReadOnly) / 3) - 1
+        dgvReservation.Item("Date_reservation", test).Value = Date.Today()
         sender.BindingContext(sender.DataSource).EndCurrentEdit()
         Dim result As Integer = MessageBox.Show("Voulez-vous ajouter les détails? ", "Option", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
@@ -77,5 +81,28 @@
             MessageBox.Show(ex.Message)
         End Try
 
+    End Sub
+
+    Sub Enregistrement()
+
+        Dim reponse As String
+        If Ds.HasChanges = True Then
+            reponse = MessageBox.Show("Voulez-vous enregistrer vos changement?", "changement", MessageBoxButtons.YesNo)
+            If reponse = vbYes Then
+                enregistrer()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub recherche_client_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Try
+            If Ds.HasChanges Then
+                Enregistrement()
+            End If
+            Ds.Clear()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class
