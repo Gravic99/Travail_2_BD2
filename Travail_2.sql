@@ -350,3 +350,45 @@ ELSE
 	 ROLLBACK
 END
 GO
+
+alter TRIGGER QuantiteDisponible_EssenceParFournisseur
+ON tbl_Reservation_Par_Items
+FOR INSERT, UPDATE
+AS
+(SELECT SUM(tbl_Reservation_Par_Items.Quantite), tbl_Reservation_Par_Items.No_Items
+FROM tbl_Reservation_Par_Items inner join inserted ON inserted.No_Items = tbl_Reservation_Par_Items.No_Items
+inner join tbl_Items ON inserted.No_Items = tbl_Items.No_Items
+GROUP BY tbl_Reservation_Par_Items.No_Items
+HAVING  SUM(tbl_Reservation_Par_Items.Quantite) > SUM(Quantite_Disponible))						
+--SET NOCOUNT ON
+--IF UPDATE(Quantite)
+--BEGIN 
+--IF (SELECT SUM(Quantite), No_Items FROM inserted GROUP BY inserted.No_Items) > (SELECT SUM(tbl_Reservation_Par_Items.Quantite), tbl_Reservation_Par_Items.No_Items
+--																				FROM tbl_Reservation_Par_Items inner join inserted ON inserted.No_Items = tbl_Reservation_Par_Items.No_Items
+--																				inner join tbl_Items ON inserted.No_Items = tbl_Items.No_Items
+--																				HAVING  SUM(tbl_Reservation_Par_Items.Quantite) > tbl_Items.Quantite_Disponible
+--																				GROUP BY tbl_Reservation_Par_Items.No_Items)
+--	BEGIN 
+--	RAISERROR('Impossible d''ajouter la quantité désirée',16,1)
+--	ROLLBACK
+--	END
+--END
+--SET NOCOUNT OFF
+GO
+
+INSERT INTO tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
+VALUES ('3','7','45','Non'),
+		('3','6','30','Non'),
+		('5','7','25','Non')
+GO
+
+INSERT INTO tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
+VALUES ('3','8','45','Non'),
+		('3','','30','Non'),
+		('5','8','25','Non')
+GO
+
+SELECT * FROM tbl_Reservation_Par_Items
+
+SELECT * FROM tbl_Items
+select * FROM tbl_Reservation
