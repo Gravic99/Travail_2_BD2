@@ -392,3 +392,24 @@ SELECT * FROM tbl_Reservation_Par_Items
 
 SELECT * FROM tbl_Items
 select * FROM tbl_Reservation
+
+
+alter procedure RemplirDgvReservation
+@No_Client int
+as
+SELECT  tbl_Reservation_Par_Items.No_Reservation as 'no détail' , tbl_Reservation_Par_Items.Quantite as 'quantité', tbl_Essences_Arbre.Nom + ' '+ tbl_Fournisseur.Nom as 'Arbre / Fournisseur', tbl_Reservation_Par_Items.Livree as 'Livré'
+	FROM tbl_Reservation INNER JOIN
+        tbl_Client ON tbl_Reservation.No_Client = tbl_Client.No_Client INNER JOIN
+        tbl_Reservation_Par_Items ON tbl_Reservation.No_Reservation = tbl_Reservation_Par_Items.No_Reservation INNER JOIN
+        tbl_Items INNER JOIN
+        tbl_Essences_Arbre ON tbl_Items.No_Essences_Arbre = tbl_Essences_Arbre.No_Essences_Arbre INNER JOIN
+        tbl_Fournisseur ON tbl_Items.No_Fournisseur = tbl_Fournisseur.No_Fournisseur ON tbl_Reservation_Par_Items.No_Items = tbl_Items.No_Items
+		where tbl_Reservation.No_Client = @No_Client
+go
+
+
+--exec RemplirDgvReservation 703
+
+--drop RemplirDgvReservation
+
+
