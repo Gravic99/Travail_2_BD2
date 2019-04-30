@@ -1,10 +1,10 @@
 USE MASTER
 GO
-/*IF EXISTS(SELECT NAME FROM sys.databases WHERE NAME = 'AR_EL_Travail_1')
+IF EXISTS(SELECT NAME FROM sys.databases WHERE NAME = 'AR_EL_Travail_1')
 DROP DATABASE AR_EL_Travail_1
 
 CREATE DATABASE AR_EL_Travail_1
-GO*/
+GO
 
 USE AR_EL_Travail_1
 GO
@@ -233,12 +233,12 @@ select * from tbl_Fournisseur
 /*Travail 2*/
 
 ALTER TABLE Tbl_Items
-drop COLUMN Prix
-go
+DROP COLUMN Prix
+GO
 
 ALTER TABLE Tbl_Reservation
-drop COLUMN Prix_Total
-go
+DROP COLUMN Prix_Total
+GO
 
 /*--Vue--*/
 CREATE VIEW View_Entente AS
@@ -259,73 +259,67 @@ WITH CHECK OPTION
 GO
 
 CREATE PROCEDURE maj_quantite
-@No_Items int,
-@Quantite_Disponible int
+@No_Items INT,
+@Quantite_Disponible INT
 AS
 UPDATE View_Entente
 SET  Quantite_Disponible = @Quantite_Disponible
 WHERE (No_Items = @No_Items)
-go
-select * from View_Entente
+GO
+SELECT * FROM View_Entente
 
 /*exec maj_quantite 4,30
 go*/
 /*--------------Donnée test------------------*/
 
-select * from tbl_Items
-select * from tbl_Fournisseur
-select * from tbl_Essences_Arbre
-go
+SELECT * FROM tbl_Items
+SELECT * FROM tbl_Fournisseur
+SELECT * FROM tbl_Essences_Arbre
+GO
 
-insert into tbl_Essences_Arbre(Nom)
-Values('Test_Arbre1'),
+INSERT INTO tbl_Essences_Arbre(Nom)
+VALUES('Test_Arbre1'),
 	('Test_Arbre2'),
 	('Test_Arbre3'),
 	('aaaaaaaa')
-go
-insert into tbl_Fournisseur(Nom)
-Values('Test_Fournisseur1'),
+GO
+
+INSERT INTO tbl_Fournisseur(Nom)
+VALUES('Test_Fournisseur1'),
 	('Test_Fournisseur2'),
 	('Test_Fournisseur3')
-go
+GO
 
-insert into tbl_Items(Quantite_Disponible,Annee_Entente,No_Fournisseur,No_Essences_Arbre)
-Values(50,2020,3,4),
+INSERT INTO tbl_Items(Quantite_Disponible,Annee_Entente,No_Fournisseur,No_Essences_Arbre)
+VALUES(50,2020,3,4),
 	(50,2020,4,5),
 	(50,2020,5,6)
-go
+GO
 
+INSERT INTO tbl_Items(Quantite_Disponible,Annee_Entente,No_Fournisseur,No_Essences_Arbre)
+VALUES(50,2019,3,4)	
+GO
 
-insert into tbl_Items(Quantite_Disponible,Annee_Entente,No_Fournisseur,No_Essences_Arbre)
-Values(50,2019,3,4)
-	
-go
-/*
-select * from tbl_Items
-select * from tbl_Fournisseur
-select * from tbl_Essences_Arbre
-go */
+ALTER TABLE tbl_Items
+DROP CONSTRAINT CK_Annee_entente
+GO
 
-alter table tbl_Items
-drop constraint CK_Annee_entente
-
-go
-
-insert into tbl_Items(Quantite_Disponible,Annee_Entente,No_Fournisseur,No_Essences_Arbre) 
-Values(50,2018,3,4),
+INSERT INTO tbl_Items(Quantite_Disponible,Annee_Entente,No_Fournisseur,No_Essences_Arbre) 
+VALUES(50,2018,3,4),
 	  (50,2018,3,5)
-go
-select * from tbl_Items
-ALTER TABLE tbl_Items with nocheck
+GO
+
+ALTER TABLE tbl_Items WITH NOCHECK
 ADD CONSTRAINT CK_Annee_entente CHECK (Annee_Entente >= Year(getDate())) 
 GO
-select * from tbl_Reservation_Par_Items
-insert into tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
-Values(1,9,5,'non')
-go
+
+SELECT * FROM tbl_Reservation_Par_Items
+INSERT INTO tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
+VALUES(1,9,5,'non')
+GO
 
 CREATE PROCEDURE destruction_client
-@noClient int
+@noClient INT
 AS
 DECLARE @cpt_error INT
 SET @cpt_error = 0
@@ -351,65 +345,66 @@ ELSE
 END
 GO
 
-alter TRIGGER QuantiteDisponible_EssenceParFournisseur
-ON tbl_Reservation_Par_Items
-FOR INSERT, UPDATE
-AS
-(SELECT SUM(tbl_Reservation_Par_Items.Quantite), tbl_Reservation_Par_Items.No_Items
-FROM tbl_Reservation_Par_Items inner join inserted ON inserted.No_Items = tbl_Reservation_Par_Items.No_Items
-inner join tbl_Items ON inserted.No_Items = tbl_Items.No_Items
-GROUP BY tbl_Reservation_Par_Items.No_Items
-HAVING  SUM(tbl_Reservation_Par_Items.Quantite) > SUM(Quantite_Disponible))						
---SET NOCOUNT ON
---IF UPDATE(Quantite)
---BEGIN 
---IF (SELECT SUM(Quantite), No_Items FROM inserted GROUP BY inserted.No_Items) > (SELECT SUM(tbl_Reservation_Par_Items.Quantite), tbl_Reservation_Par_Items.No_Items
---																				FROM tbl_Reservation_Par_Items inner join inserted ON inserted.No_Items = tbl_Reservation_Par_Items.No_Items
---																				inner join tbl_Items ON inserted.No_Items = tbl_Items.No_Items
---																				HAVING  SUM(tbl_Reservation_Par_Items.Quantite) > tbl_Items.Quantite_Disponible
---																				GROUP BY tbl_Reservation_Par_Items.No_Items)
---	BEGIN 
---	RAISERROR('Impossible d''ajouter la quantité désirée',16,1)
---	ROLLBACK
---	END
---END
---SET NOCOUNT OFF
+EXEC destruction_client '1'
 GO
 
+CREATE TRIGGER QuantiteDisponible_EssenceParFournisseur
+ON tbl_Reservation_Par_Items
+FOR INSERT, UPDATE
+AS		
+SET NOCOUNT ON
+IF UPDATE(Quantite)
+BEGIN 
+IF EXISTS (SELECT SUM(tbl_Reservation_Par_Items.Quantite), tbl_Reservation_Par_Items.No_Items
+	FROM tbl_Reservation_Par_Items INNER JOIN inserted ON inserted.No_Items = tbl_Reservation_Par_Items.No_Items AND inserted.No_Reservation = tbl_Reservation_Par_Items.No_Reservation
+	INNER JOIN tbl_Items ON inserted.No_Items = tbl_Items.No_Items
+	GROUP BY tbl_Reservation_Par_Items.No_Items, Quantite_Disponible
+	HAVING  SUM(tbl_Reservation_Par_Items.Quantite) > Quantite_Disponible)	
+BEGIN 
+RAISERROR('Impossible d''ajouter la quantité désirée',16,1)
+ROLLBACK
+END
+END
+SET NOCOUNT OFF
+GO
+
+/*
+--UNITAIRE NON FONCTIONNEL
+INSERT INTO tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
+VALUES ('3','8','65','Non')
+GO
+
+--UNITAIRE FONCTIONNEL
+INSERT INTO tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
+VALUES ('3','8','10','Non')
+GO
+
+--BATCH NON FONCTIONNEL
 INSERT INTO tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
 VALUES ('3','7','45','Non'),
 		('3','6','30','Non'),
 		('5','7','25','Non')
 GO
 
+--BATCH FONCTIONNEL
 INSERT INTO tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
-VALUES ('3','8','45','Non'),
-		('3','','30','Non'),
-		('5','8','25','Non')
+VALUES ('3','7','15','Non'),
+		('3','6','30','Non'),
+		('5','7','25','Non')
 GO
 
+DELETE FROM tbl_Reservation_Par_Items
+WHERE No_Reservation = 3
+GO
+DELETE FROM tbl_Reservation_Par_Items
+WHERE No_Reservation = 5
+GO
+DELETE FROM tbl_Reservation_Par_Items
+WHERE No_Reservation = 8
+GO
+*/
+
 SELECT * FROM tbl_Reservation_Par_Items
-
 SELECT * FROM tbl_Items
-select * FROM tbl_Reservation
-
-
-alter procedure RemplirDgvReservation
-@No_Client int
-as
-SELECT  tbl_Reservation_Par_Items.No_Reservation as 'no détail' , tbl_Reservation_Par_Items.Quantite as 'quantité', tbl_Essences_Arbre.Nom + ' '+ tbl_Fournisseur.Nom as 'Arbre / Fournisseur', tbl_Reservation_Par_Items.Livree as 'Livré'
-	FROM tbl_Reservation INNER JOIN
-        tbl_Client ON tbl_Reservation.No_Client = tbl_Client.No_Client INNER JOIN
-        tbl_Reservation_Par_Items ON tbl_Reservation.No_Reservation = tbl_Reservation_Par_Items.No_Reservation INNER JOIN
-        tbl_Items INNER JOIN
-        tbl_Essences_Arbre ON tbl_Items.No_Essences_Arbre = tbl_Essences_Arbre.No_Essences_Arbre INNER JOIN
-        tbl_Fournisseur ON tbl_Items.No_Fournisseur = tbl_Fournisseur.No_Fournisseur ON tbl_Reservation_Par_Items.No_Items = tbl_Items.No_Items
-		where tbl_Reservation.No_Client = @No_Client
-go
-
-
---exec RemplirDgvReservation 703
-
---drop RemplirDgvReservation
-
-
+SELECT * FROM tbl_Reservation
+SELECT * FROM tbl_Client
