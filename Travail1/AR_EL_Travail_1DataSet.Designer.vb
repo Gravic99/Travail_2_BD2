@@ -39,7 +39,7 @@ Partial Public Class AR_EL_Travail_1DataSet
     
     Private tableView_Entente As View_EntenteDataTable
     
-    Private tableRemplirDgvReservation As RemplirDgvReservationDataTable
+    Private tablearbre_et_fournisseur As arbre_et_fournisseurDataTable
     
     Private relationFK__tbl_Items__No_Fo__25869641 As Global.System.Data.DataRelation
     
@@ -101,8 +101,8 @@ Partial Public Class AR_EL_Travail_1DataSet
             If (Not (ds.Tables("View_Entente")) Is Nothing) Then
                 MyBase.Tables.Add(New View_EntenteDataTable(ds.Tables("View_Entente")))
             End If
-            If (Not (ds.Tables("RemplirDgvReservation")) Is Nothing) Then
-                MyBase.Tables.Add(New RemplirDgvReservationDataTable(ds.Tables("RemplirDgvReservation")))
+            If (Not (ds.Tables("arbre_et_fournisseur")) Is Nothing) Then
+                MyBase.Tables.Add(New arbre_et_fournisseurDataTable(ds.Tables("arbre_et_fournisseur")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -195,9 +195,9 @@ Partial Public Class AR_EL_Travail_1DataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property RemplirDgvReservation() As RemplirDgvReservationDataTable
+    Public ReadOnly Property arbre_et_fournisseur() As arbre_et_fournisseurDataTable
         Get
-            Return Me.tableRemplirDgvReservation
+            Return Me.tablearbre_et_fournisseur
         End Get
     End Property
     
@@ -289,8 +289,8 @@ Partial Public Class AR_EL_Travail_1DataSet
             If (Not (ds.Tables("View_Entente")) Is Nothing) Then
                 MyBase.Tables.Add(New View_EntenteDataTable(ds.Tables("View_Entente")))
             End If
-            If (Not (ds.Tables("RemplirDgvReservation")) Is Nothing) Then
-                MyBase.Tables.Add(New RemplirDgvReservationDataTable(ds.Tables("RemplirDgvReservation")))
+            If (Not (ds.Tables("arbre_et_fournisseur")) Is Nothing) Then
+                MyBase.Tables.Add(New arbre_et_fournisseurDataTable(ds.Tables("arbre_et_fournisseur")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -366,10 +366,10 @@ Partial Public Class AR_EL_Travail_1DataSet
                 Me.tableView_Entente.InitVars
             End If
         End If
-        Me.tableRemplirDgvReservation = CType(MyBase.Tables("RemplirDgvReservation"),RemplirDgvReservationDataTable)
+        Me.tablearbre_et_fournisseur = CType(MyBase.Tables("arbre_et_fournisseur"),arbre_et_fournisseurDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableRemplirDgvReservation) Is Nothing) Then
-                Me.tableRemplirDgvReservation.InitVars
+            If (Not (Me.tablearbre_et_fournisseur) Is Nothing) Then
+                Me.tablearbre_et_fournisseur.InitVars
             End If
         End If
         Me.relationFK__tbl_Items__No_Fo__25869641 = Me.Relations("FK__tbl_Items__No_Fo__25869641")
@@ -401,8 +401,8 @@ Partial Public Class AR_EL_Travail_1DataSet
         MyBase.Tables.Add(Me.tabletbl_Reservation_Par_Items)
         Me.tableView_Entente = New View_EntenteDataTable()
         MyBase.Tables.Add(Me.tableView_Entente)
-        Me.tableRemplirDgvReservation = New RemplirDgvReservationDataTable()
-        MyBase.Tables.Add(Me.tableRemplirDgvReservation)
+        Me.tablearbre_et_fournisseur = New arbre_et_fournisseurDataTable()
+        MyBase.Tables.Add(Me.tablearbre_et_fournisseur)
         Dim fkc As Global.System.Data.ForeignKeyConstraint
         fkc = New Global.System.Data.ForeignKeyConstraint("FK__tbl_Items__No_Fo__25869641", New Global.System.Data.DataColumn() {Me.tabletbl_Fournisseur.No_FournisseurColumn}, New Global.System.Data.DataColumn() {Me.tabletbl_Items.No_FournisseurColumn})
         Me.tabletbl_Items.Constraints.Add(fkc)
@@ -466,7 +466,7 @@ Partial Public Class AR_EL_Travail_1DataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Private Function ShouldSerializeRemplirDgvReservation() As Boolean
+    Private Function ShouldSerializearbre_et_fournisseur() As Boolean
         Return false
     End Function
     
@@ -550,7 +550,7 @@ Partial Public Class AR_EL_Travail_1DataSet
     Public Delegate Sub View_EntenteRowChangeEventHandler(ByVal sender As Object, ByVal e As View_EntenteRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Delegate Sub RemplirDgvReservationRowChangeEventHandler(ByVal sender As Object, ByVal e As RemplirDgvReservationRowChangeEvent)
+    Public Delegate Sub arbre_et_fournisseurRowChangeEventHandler(ByVal sender As Object, ByVal e As arbre_et_fournisseurRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -2714,22 +2714,18 @@ Partial Public Class AR_EL_Travail_1DataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class RemplirDgvReservationDataTable
-        Inherits Global.System.Data.TypedTableBase(Of RemplirDgvReservationRow)
+    Partial Public Class arbre_et_fournisseurDataTable
+        Inherits Global.System.Data.TypedTableBase(Of arbre_et_fournisseurRow)
         
-        Private columnno_détail As Global.System.Data.DataColumn
+        Private columnarbre_fournisseur As Global.System.Data.DataColumn
         
-        Private columnquantité As Global.System.Data.DataColumn
-        
-        Private _columnArbre___Fournisseur As Global.System.Data.DataColumn
-        
-        Private columnLivré As Global.System.Data.DataColumn
+        Private columnNo_Items As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "RemplirDgvReservation"
+            Me.TableName = "arbre_et_fournisseur"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -2762,33 +2758,17 @@ Partial Public Class AR_EL_Travail_1DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property no_détailColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property arbre_fournisseurColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnno_détail
+                Return Me.columnarbre_fournisseur
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property quantitéColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property No_ItemsColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnquantité
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property _Arbre___FournisseurColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnArbre___Fournisseur
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property LivréColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLivré
+                Return Me.columnNo_Items
             End Get
         End Property
         
@@ -2803,44 +2783,50 @@ Partial Public Class AR_EL_Travail_1DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As RemplirDgvReservationRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As arbre_et_fournisseurRow
             Get
-                Return CType(Me.Rows(index),RemplirDgvReservationRow)
+                Return CType(Me.Rows(index),arbre_et_fournisseurRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event RemplirDgvReservationRowChanging As RemplirDgvReservationRowChangeEventHandler
+        Public Event arbre_et_fournisseurRowChanging As arbre_et_fournisseurRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event RemplirDgvReservationRowChanged As RemplirDgvReservationRowChangeEventHandler
+        Public Event arbre_et_fournisseurRowChanged As arbre_et_fournisseurRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event RemplirDgvReservationRowDeleting As RemplirDgvReservationRowChangeEventHandler
+        Public Event arbre_et_fournisseurRowDeleting As arbre_et_fournisseurRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event RemplirDgvReservationRowDeleted As RemplirDgvReservationRowChangeEventHandler
+        Public Event arbre_et_fournisseurRowDeleted As arbre_et_fournisseurRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Sub AddRemplirDgvReservationRow(ByVal row As RemplirDgvReservationRow)
+        Public Overloads Sub Addarbre_et_fournisseurRow(ByVal row As arbre_et_fournisseurRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddRemplirDgvReservationRow(ByVal no_détail As Integer, ByVal quantité As Integer, ByVal _Arbre___Fournisseur As String, ByVal Livré As String) As RemplirDgvReservationRow
-            Dim rowRemplirDgvReservationRow As RemplirDgvReservationRow = CType(Me.NewRow,RemplirDgvReservationRow)
-            Dim columnValuesArray() As Object = New Object() {no_détail, quantité, _Arbre___Fournisseur, Livré}
-            rowRemplirDgvReservationRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowRemplirDgvReservationRow)
-            Return rowRemplirDgvReservationRow
+        Public Overloads Function Addarbre_et_fournisseurRow(ByVal arbre_fournisseur As String) As arbre_et_fournisseurRow
+            Dim rowarbre_et_fournisseurRow As arbre_et_fournisseurRow = CType(Me.NewRow,arbre_et_fournisseurRow)
+            Dim columnValuesArray() As Object = New Object() {arbre_fournisseur, Nothing}
+            rowarbre_et_fournisseurRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowarbre_et_fournisseurRow)
+            Return rowarbre_et_fournisseurRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindByNo_Items(ByVal No_Items As Integer) As arbre_et_fournisseurRow
+            Return CType(Me.Rows.Find(New Object() {No_Items}),arbre_et_fournisseurRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As RemplirDgvReservationDataTable = CType(MyBase.Clone,RemplirDgvReservationDataTable)
+            Dim cln As arbre_et_fournisseurDataTable = CType(MyBase.Clone,arbre_et_fournisseurDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -2848,62 +2834,56 @@ Partial Public Class AR_EL_Travail_1DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New RemplirDgvReservationDataTable()
+            Return New arbre_et_fournisseurDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnno_détail = MyBase.Columns("no détail")
-            Me.columnquantité = MyBase.Columns("quantité")
-            Me._columnArbre___Fournisseur = MyBase.Columns("Arbre / Fournisseur")
-            Me.columnLivré = MyBase.Columns("Livré")
+            Me.columnarbre_fournisseur = MyBase.Columns("arbre_fournisseur")
+            Me.columnNo_Items = MyBase.Columns("No_Items")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnno_détail = New Global.System.Data.DataColumn("no détail", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnno_détail)
-            Me.columnquantité = New Global.System.Data.DataColumn("quantité", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnquantité)
-            Me._columnArbre___Fournisseur = New Global.System.Data.DataColumn("Arbre / Fournisseur", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnArbre___Fournisseur.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnArbre___Fournisseur")
-            Me._columnArbre___Fournisseur.ExtendedProperties.Add("Generator_UserColumnName", "Arbre / Fournisseur")
-            MyBase.Columns.Add(Me._columnArbre___Fournisseur)
-            Me.columnLivré = New Global.System.Data.DataColumn("Livré", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLivré)
-            Me.columnno_détail.AllowDBNull = false
-            Me.columnquantité.AllowDBNull = false
-            Me._columnArbre___Fournisseur.ReadOnly = true
-            Me._columnArbre___Fournisseur.MaxLength = 201
-            Me.columnLivré.MaxLength = 100
+            Me.columnarbre_fournisseur = New Global.System.Data.DataColumn("arbre_fournisseur", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnarbre_fournisseur)
+            Me.columnNo_Items = New Global.System.Data.DataColumn("No_Items", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNo_Items)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNo_Items}, true))
+            Me.columnarbre_fournisseur.ReadOnly = true
+            Me.columnarbre_fournisseur.MaxLength = 203
+            Me.columnNo_Items.AutoIncrement = true
+            Me.columnNo_Items.AllowDBNull = false
+            Me.columnNo_Items.ReadOnly = true
+            Me.columnNo_Items.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function NewRemplirDgvReservationRow() As RemplirDgvReservationRow
-            Return CType(Me.NewRow,RemplirDgvReservationRow)
+        Public Function Newarbre_et_fournisseurRow() As arbre_et_fournisseurRow
+            Return CType(Me.NewRow,arbre_et_fournisseurRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New RemplirDgvReservationRow(builder)
+            Return New arbre_et_fournisseurRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(RemplirDgvReservationRow)
+            Return GetType(arbre_et_fournisseurRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.RemplirDgvReservationRowChangedEvent) Is Nothing) Then
-                RaiseEvent RemplirDgvReservationRowChanged(Me, New RemplirDgvReservationRowChangeEvent(CType(e.Row,RemplirDgvReservationRow), e.Action))
+            If (Not (Me.arbre_et_fournisseurRowChangedEvent) Is Nothing) Then
+                RaiseEvent arbre_et_fournisseurRowChanged(Me, New arbre_et_fournisseurRowChangeEvent(CType(e.Row,arbre_et_fournisseurRow), e.Action))
             End If
         End Sub
         
@@ -2911,8 +2891,8 @@ Partial Public Class AR_EL_Travail_1DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.RemplirDgvReservationRowChangingEvent) Is Nothing) Then
-                RaiseEvent RemplirDgvReservationRowChanging(Me, New RemplirDgvReservationRowChangeEvent(CType(e.Row,RemplirDgvReservationRow), e.Action))
+            If (Not (Me.arbre_et_fournisseurRowChangingEvent) Is Nothing) Then
+                RaiseEvent arbre_et_fournisseurRowChanging(Me, New arbre_et_fournisseurRowChangeEvent(CType(e.Row,arbre_et_fournisseurRow), e.Action))
             End If
         End Sub
         
@@ -2920,8 +2900,8 @@ Partial Public Class AR_EL_Travail_1DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.RemplirDgvReservationRowDeletedEvent) Is Nothing) Then
-                RaiseEvent RemplirDgvReservationRowDeleted(Me, New RemplirDgvReservationRowChangeEvent(CType(e.Row,RemplirDgvReservationRow), e.Action))
+            If (Not (Me.arbre_et_fournisseurRowDeletedEvent) Is Nothing) Then
+                RaiseEvent arbre_et_fournisseurRowDeleted(Me, New arbre_et_fournisseurRowChangeEvent(CType(e.Row,arbre_et_fournisseurRow), e.Action))
             End If
         End Sub
         
@@ -2929,14 +2909,14 @@ Partial Public Class AR_EL_Travail_1DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.RemplirDgvReservationRowDeletingEvent) Is Nothing) Then
-                RaiseEvent RemplirDgvReservationRowDeleting(Me, New RemplirDgvReservationRowChangeEvent(CType(e.Row,RemplirDgvReservationRow), e.Action))
+            If (Not (Me.arbre_et_fournisseurRowDeletingEvent) Is Nothing) Then
+                RaiseEvent arbre_et_fournisseurRowDeleting(Me, New arbre_et_fournisseurRowChangeEvent(CType(e.Row,arbre_et_fournisseurRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub RemoveRemplirDgvReservationRow(ByVal row As RemplirDgvReservationRow)
+        Public Sub Removearbre_et_fournisseurRow(ByVal row As arbre_et_fournisseurRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -2963,7 +2943,7 @@ Partial Public Class AR_EL_Travail_1DataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "RemplirDgvReservationDataTable"
+            attribute2.FixedValue = "arbre_et_fournisseurDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -3618,94 +3598,55 @@ Partial Public Class AR_EL_Travail_1DataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class RemplirDgvReservationRow
+    Partial Public Class arbre_et_fournisseurRow
         Inherits Global.System.Data.DataRow
         
-        Private tableRemplirDgvReservation As RemplirDgvReservationDataTable
+        Private tablearbre_et_fournisseur As arbre_et_fournisseurDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableRemplirDgvReservation = CType(Me.Table,RemplirDgvReservationDataTable)
+            Me.tablearbre_et_fournisseur = CType(Me.Table,arbre_et_fournisseurDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property no_détail() As Integer
-            Get
-                Return CType(Me(Me.tableRemplirDgvReservation.no_détailColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableRemplirDgvReservation.no_détailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property quantité() As Integer
-            Get
-                Return CType(Me(Me.tableRemplirDgvReservation.quantitéColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableRemplirDgvReservation.quantitéColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property _Arbre___Fournisseur() As String
+        Public Property arbre_fournisseur() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableRemplirDgvReservation._Arbre___FournisseurColumn),String)
+                    Return CType(Me(Me.tablearbre_et_fournisseur.arbre_fournisseurColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'Arbre / Fournisseur' dans la table 'RemplirDgvReservat"& _ 
-                            "ion' est DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'arbre_fournisseur' dans la table 'arbre_et_fournisseur"& _ 
+                            "' est DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableRemplirDgvReservation._Arbre___FournisseurColumn) = value
+                Me(Me.tablearbre_et_fournisseur.arbre_fournisseurColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Livré() As String
+        Public Property No_Items() As Integer
             Get
-                Try 
-                    Return CType(Me(Me.tableRemplirDgvReservation.LivréColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'Livré' dans la table 'RemplirDgvReservation' est DBNul"& _ 
-                            "l.", e)
-                End Try
+                Return CType(Me(Me.tablearbre_et_fournisseur.No_ItemsColumn),Integer)
             End Get
             Set
-                Me(Me.tableRemplirDgvReservation.LivréColumn) = value
+                Me(Me.tablearbre_et_fournisseur.No_ItemsColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Is_Arbre___FournisseurNull() As Boolean
-            Return Me.IsNull(Me.tableRemplirDgvReservation._Arbre___FournisseurColumn)
+        Public Function Isarbre_fournisseurNull() As Boolean
+            Return Me.IsNull(Me.tablearbre_et_fournisseur.arbre_fournisseurColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Set_Arbre___FournisseurNull()
-            Me(Me.tableRemplirDgvReservation._Arbre___FournisseurColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsLivréNull() As Boolean
-            Return Me.IsNull(Me.tableRemplirDgvReservation.LivréColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetLivréNull()
-            Me(Me.tableRemplirDgvReservation.LivréColumn) = Global.System.Convert.DBNull
+        Public Sub Setarbre_fournisseurNull()
+            Me(Me.tablearbre_et_fournisseur.arbre_fournisseurColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3965,16 +3906,16 @@ Partial Public Class AR_EL_Travail_1DataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Class RemplirDgvReservationRowChangeEvent
+    Public Class arbre_et_fournisseurRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As RemplirDgvReservationRow
+        Private eventRow As arbre_et_fournisseurRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New(ByVal row As RemplirDgvReservationRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As arbre_et_fournisseurRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -3982,7 +3923,7 @@ Partial Public Class AR_EL_Travail_1DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Row() As RemplirDgvReservationRow
+        Public ReadOnly Property Row() As arbre_et_fournisseurRow
             Get
                 Return Me.eventRow
             End Get
@@ -6472,7 +6413,7 @@ Namespace AR_EL_Travail_1DataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class RemplirDgvReservationTableAdapter
+    Partial Public Class arbre_et_fournisseurTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -6589,11 +6530,9 @@ Namespace AR_EL_Travail_1DataSetTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "RemplirDgvReservation"
-            tableMapping.ColumnMappings.Add("no détail", "no détail")
-            tableMapping.ColumnMappings.Add("quantité", "quantité")
-            tableMapping.ColumnMappings.Add("Arbre / Fournisseur", "Arbre / Fournisseur")
-            tableMapping.ColumnMappings.Add("Livré", "Livré")
+            tableMapping.DataSetTable = "arbre_et_fournisseur"
+            tableMapping.ColumnMappings.Add("arbre_fournisseur", "arbre_fournisseur")
+            tableMapping.ColumnMappings.Add("No_Items", "No_Items")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -6610,20 +6549,20 @@ Namespace AR_EL_Travail_1DataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.RemplirDgvReservation"
+            Me._commandCollection(0).CommandText = "dbo.arbre_et_fournisseur"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@No_Client", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@annee", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As AR_EL_Travail_1DataSet.RemplirDgvReservationDataTable, ByVal No_Client As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As AR_EL_Travail_1DataSet.arbre_et_fournisseurDataTable, ByVal annee As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (No_Client.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(No_Client.Value,Integer)
+            If (annee.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(annee.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
@@ -6638,14 +6577,14 @@ Namespace AR_EL_Travail_1DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal No_Client As Global.System.Nullable(Of Integer)) As AR_EL_Travail_1DataSet.RemplirDgvReservationDataTable
+        Public Overloads Overridable Function GetData(ByVal annee As Global.System.Nullable(Of Integer)) As AR_EL_Travail_1DataSet.arbre_et_fournisseurDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (No_Client.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(No_Client.Value,Integer)
+            If (annee.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(annee.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Dim dataTable As AR_EL_Travail_1DataSet.RemplirDgvReservationDataTable = New AR_EL_Travail_1DataSet.RemplirDgvReservationDataTable()
+            Dim dataTable As AR_EL_Travail_1DataSet.arbre_et_fournisseurDataTable = New AR_EL_Travail_1DataSet.arbre_et_fournisseurDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
