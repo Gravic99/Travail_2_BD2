@@ -71,4 +71,29 @@
     Private Sub dgvDetailsReservation_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDetailsReservation.CellContentClick
 
     End Sub
+
+    Private Sub Reservation_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If dgvDetailsReservation.GetCellCount(DataGridViewElementStates.ReadOnly) = 1 Then
+            Dim result As Integer = MessageBox.Show("Voulez-vous détruire ce détail et la réservation? ", "destruction", MessageBoxButtons.YesNo)
+            If result = DialogResult.Yes Then
+                recherche_client.dgvReservation.Rows.RemoveAt(recherche_client.dgvReservation.CurrentCell.RowIndex)
+                'recherche_client.dgvReservation("No_Reservation", recherche_client.dgvReservation.CurrentCell.RowIndex).Dispose()
+                'recherche_client.chargerdgv()
+            ElseIf result = DialogResult.No Then
+                enregistrer()
+            End If
+        Else
+            enregistrer()
+        End If
+
+    End Sub
+
+    Private Sub dgvDetailsReservation_DefaultValuesNeeded(sender As Object, e As DataGridViewRowEventArgs) Handles dgvDetailsReservation.DefaultValuesNeeded
+        Dim place As Integer = (dgvDetailsReservation.GetCellCount(DataGridViewElementStates.ReadOnly) / 1) - 1
+        dgvDetailsReservation.Item("No_Reservation", place).Value = txtNoReservation.Text
+        dgvDetailsReservation.Item("Livree", place).Value = "non"
+        dgvDetailsReservation.Item("Quantite", place).Value = 1
+
+
+    End Sub
 End Class

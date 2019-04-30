@@ -26,34 +26,37 @@
             If Ds.HasChanges Then
                 Enregistrement()
             End If
-            Ta_Client.FillByRecherche(Ds.tbl_Client, txtNom.Text)
-            Ta_Reservation.Fill(Ds.tbl_Reservation)
-
-            Bs_Client.DataSource = Ds
-            Bs_Client.DataMember = "tbl_Client"
-
-            Bs_Reservation.DataSource = Bs_Client
-            Bs_Reservation.DataMember = "FK__tbl_Reser__No_Cl__1B0907CE"
-
-            dgvClient.DataSource = Bs_Client
-            dgvReservation.DataSource = Bs_Reservation
-
-            dgvClient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
-            dgvReservation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
-
-            dgvReservation.Columns("No_Reservation").HeaderText = "No Réservation"
-            dgvReservation.Columns("Date_reservation").HeaderText = "Date réservation"
-
-            dgvClient.Columns("No_Client").HeaderText = "No client"
-            dgvClient.AllowUserToAddRows = False
-            dgvClient.AllowUserToDeleteRows = False
-            dgvClient.ReadOnly = True
-            dgvReservation.Columns("No_Client").Visible = False
-            dgvReservation.ReadOnly = True
+            chargerdgv()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
 
+    End Sub
+    Sub chargerdgv()
+        Ta_Client.FillByRecherche(Ds.tbl_Client, txtNom.Text)
+        Ta_Reservation.Fill(Ds.tbl_Reservation)
+
+        Bs_Client.DataSource = Ds
+        Bs_Client.DataMember = "tbl_Client"
+
+        Bs_Reservation.DataSource = Bs_Client
+        Bs_Reservation.DataMember = "FK__tbl_Reser__No_Cl__1B0907CE"
+
+        dgvClient.DataSource = Bs_Client
+        dgvReservation.DataSource = Bs_Reservation
+
+        dgvClient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
+        dgvReservation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
+
+        dgvReservation.Columns("No_Reservation").HeaderText = "No Réservation"
+        dgvReservation.Columns("Date_reservation").HeaderText = "Date réservation"
+
+        dgvClient.Columns("No_Client").HeaderText = "No client"
+        dgvClient.AllowUserToAddRows = False
+        dgvClient.AllowUserToDeleteRows = False
+        dgvClient.ReadOnly = True
+        dgvReservation.Columns("No_Client").Visible = False
+        dgvReservation.ReadOnly = True
     End Sub
 
 
@@ -63,6 +66,12 @@
         sender.BindingContext(sender.DataSource).EndCurrentEdit()
         Dim result As Integer = MessageBox.Show("Voulez-vous ajouter les détails? ", "Option", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
+            enregistrer()
+            Reservation.txtNoReservation.Text = dgvReservation.Item(0, dgvReservation.CurrentRow.Index).Value
+            Reservation.txtNoClient.Text = dgvClient.Item(0, dgvClient.CurrentRow.Index).Value
+            Reservation.txtPrenom.Text = dgvClient.Item(2, dgvClient.CurrentRow.Index).Value
+            Reservation.txtNom.Text = dgvClient.Item(1, dgvClient.CurrentRow.Index).Value
+            Reservation.txtDate.Text = dgvReservation.Item(1, dgvReservation.CurrentRow.Index).Value
             Reservation.ShowDialog()
         End If
     End Sub
@@ -106,5 +115,7 @@
         End Try
     End Sub
 
+    Private Sub dgvReservation_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservation.CellContentClick
 
+    End Sub
 End Class
