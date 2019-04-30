@@ -58,8 +58,8 @@
 
 
     Private Sub dgvReservation_DefaultValuesNeeded(sender As Object, e As DataGridViewRowEventArgs) Handles dgvReservation.DefaultValuesNeeded
-        Dim test As Integer = (dgvReservation.GetCellCount(DataGridViewElementStates.ReadOnly) / 3) - 1
-        dgvReservation.Item("Date_reservation", test).Value = Date.Today()
+        Dim place As Integer = (dgvReservation.GetCellCount(DataGridViewElementStates.ReadOnly) / 3) - 1
+        dgvReservation.Item("Date_reservation", place).Value = Date.Today()
         sender.BindingContext(sender.DataSource).EndCurrentEdit()
         Dim result As Integer = MessageBox.Show("Voulez-vous ajouter les détails? ", "Option", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
@@ -105,4 +105,6 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+
 End Class

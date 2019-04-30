@@ -4,9 +4,34 @@
     Dim Ta_Arbre As New AR_EL_Travail_1DataSetTableAdapters.tbl_Essences_ArbreTableAdapter
     Dim Ta_Fournisseur As New AR_EL_Travail_1DataSetTableAdapters.tbl_FournisseurTableAdapter
     Dim Ta_Items As New AR_EL_Travail_1DataSetTableAdapters.tbl_ItemsTableAdapter
+    Dim Bs_reservation_par_Items As New BindingSource
     Private Sub Reservation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Ta_ReservationParItems.FillByPrecis(Ds.tbl_Reservation_Par_Items, txtNoReservation.Text, txt)
-        dgvDetailsReservation.DataSource = Ds.tbl_Items
+        Bs_reservation_par_Items.DataSource = Ds
+        Bs_reservation_par_Items.DataMember = "tbl_Reservation_Par_Items"
+        Ta_Items.Fill(Ds.tbl_Items)
+
+        Ta_ReservationParItems.FillByPrecis(Ds.tbl_Reservation_Par_Items, txtNoReservation.Text)
+        dgvDetailsReservation.DataSource = Bs_reservation_par_Items
+        dgvDetailsReservation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
+        dgvDetailsReservation.Columns("No_Reservation").HeaderText = "No détail"
+        dgvDetailsReservation.Columns("No_Items").HeaderText = "Arbre / Fournisseur"
+        dgvDetailsReservation.Columns("Livree").HeaderText = "Livré"
+        dgvDetailsReservation.Columns("No_Reservation").ReadOnly = True
+        dgvDetailsReservation.Columns("No_Items").ReadOnly = True
+
+        'Dim cbbox As New DataGridViewComboBoxColumn
+        'With cbbox
+        '    .DataPropertyName = "No_Items"
+        '    .HeaderText = "No_Items"
+        '    .DataSource = Ta_Items
+        '    .ValueMember = "Arbre_Fournisseur"
+        '    .DisplayMember = "Arbre / fournisseur"
+
+        'End With
+        'If dgvDetailsReservation.Columns.Contains("No_DA") Then
+        '    dgvDetailsReservation.Columns.Remove("No_DA")
+        '    dgvDetailsReservation.Columns.Insert(2, cbbox)
+        'End If
         DisableTxtBox()
     End Sub
     Sub DisableTxtBox()
@@ -40,7 +65,9 @@
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+
         End Try
+
     End Sub
 
     Private Sub dgvDetailsReservation_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDetailsReservation.CellContentClick
