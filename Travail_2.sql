@@ -318,10 +318,6 @@ INSERT INTO tbl_Reservation_Par_Items(No_Reservation,No_Items,Quantite,Livree)
 VALUES(1,9,5,'non')
 GO
 
-
-
-
-
 CREATE PROCEDURE destruction_client
 @noClient INT
 AS
@@ -352,7 +348,7 @@ GO
 EXEC destruction_client '1'
 GO
 
-create TRIGGER QuantiteDisponible_EssenceParFournisseur
+CREATE TRIGGER QuantiteDisponible_EssenceParFournisseur
 ON tbl_Reservation_Par_Items
 FOR INSERT, UPDATE
 AS		
@@ -365,7 +361,7 @@ IF EXISTS (SELECT SUM(tbl_Reservation_Par_Items.Quantite), tbl_Reservation_Par_I
 	GROUP BY tbl_Reservation_Par_Items.No_Items, Quantite_Disponible
 	HAVING  SUM(tbl_Reservation_Par_Items.Quantite) > Quantite_Disponible)	
 BEGIN 
-RAISERROR('Impossible d''ajouter la quantité désirée, celle-ci est plus grande que la qunatité disponible',16,1)
+RAISERROR('Impossible d''ajouter la quantité désirée, celle-ci est plus grande que la quantité disponible',16,1)
 ROLLBACK
 END
 END
@@ -407,17 +403,15 @@ DELETE FROM tbl_Reservation_Par_Items
 WHERE No_Reservation = 8
 GO
 */
-use AR_EL_Travail_1
-go
-create PROCEDURE arbre_et_fournisseur
-@annee int
-AS
-select tbl_Essences_Arbre.Nom+' | '+tbl_Fournisseur.Nom as'arbre_fournisseur', tbl_Items.No_Items
-from tbl_Essences_Arbre inner join tbl_Items on tbl_Essences_Arbre.No_Essences_Arbre = tbl_Items.No_Essences_Arbre 
-inner join tbl_Fournisseur on tbl_Items.No_Fournisseur = tbl_Fournisseur.No_Fournisseur
-where Annee_Entente = @annee
-go
 
+CREATE PROCEDURE arbre_et_fournisseur
+@annee INT
+AS
+SELECT tbl_Essences_Arbre.Nom+' | '+tbl_Fournisseur.Nom AS'arbre_fournisseur', tbl_Items.No_Items
+FROM tbl_Essences_Arbre INNER JOIN tbl_Items ON tbl_Essences_Arbre.No_Essences_Arbre = tbl_Items.No_Essences_Arbre 
+INNER JOIN tbl_Fournisseur ON tbl_Items.No_Fournisseur = tbl_Fournisseur.No_Fournisseur
+WHERE Annee_Entente = @annee
+GO
 
 SELECT * FROM tbl_Reservation_Par_Items
 SELECT * FROM tbl_Items
